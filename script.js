@@ -8,10 +8,10 @@ const ISLIVE = "https://api.twitch.tv/kraken/streams/";
 
 function onPageLoad(){
     let str = window.location.href;
-    str = str.slice(36);
-    alert(str);
-    if ( str != redirectURL ){
-        //take token here   
+    str = str.slice(37);
+    if ( str.length > 0 ){
+        str = str.slice(0, str.indexOf("&"));
+        alert(str);
     }
 }
 
