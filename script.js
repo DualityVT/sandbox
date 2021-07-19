@@ -11,7 +11,7 @@ function onPageLoad(){
     if (window.location.search.length > 0){
         let link = window.location.search;
         link = link.slice(link.indexOf("="), link.indexOf("&"));
-        alert(link)
+        alert(link);
     }
 }
 function onClick(){
