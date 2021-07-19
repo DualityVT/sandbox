@@ -2,16 +2,15 @@ var clientID = "";
 var clientSecret = "";
 var redirectURL = "https://dualityvt.github.io/sandbox/";
 var token = "";
-
 const VALIDATE = "https://id.twitch.tv/oauth2/validate";
 const AUTH = "https://id.twitch.tv/oauth2/authorize";
 const ISLIVE = "https://api.twitch.tv/kraken/streams/";
 
 function onPageLoad(){
+    alert(window.location.search); 
     let str = window.location.search;
     if ( str != redirectURL ){
-        str = str.slice(str.indexOf("#"), str.indexOf("&"));
-        alert("yep " + str); 
+        //take token here   
     }
 }
 
