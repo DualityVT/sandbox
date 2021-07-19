@@ -5,19 +5,20 @@ var token = "";
 
 const VALIDATE = "https://id.twitch.tv/oauth2/validate";
 const AUTH = "https://id.twitch.tv/oauth2/authorize";
-const ISLIVE = "https://api.twitch.tv/kraken/streams/"
+const ISLIVE = "https://api.twitch.tv/kraken/streams/";
 
 function onPageLoad(){
+    console.log("onPageLoad");
     if (window.location.search.length > 0){
         let link = window.location.search;
         link = link.slice(link.indexOf("="), link.indexOf("&"));
-        alert(link);
+        console.log("Token sucessfully taken from url : " + link);
     }
 }
 function onClick(){
     getToken();
 }
-function isLive(){
+//function isLive(){}
 /*
 url example:    
     #access_token=rorq1oav1vcd34xnrcibfmpdl6jp4o
@@ -30,13 +31,13 @@ window.location.search.length
 ^ use this to catch token
 
 */
-}
+
 function getToken(){
     let cid = document.getElementById("clientID_text").value;
     let url = AUTH;
     url += "?client_id=" + cid;
     url += "&redirect_uri=" + redirectURL;
-    url += "&response_type=token+id_token"
-    url += "&scope=openid user_read"
+    url += "&response_type=token+id_token";
+    url += "&scope=openid user_read";
     window.location.href = url;
 }
