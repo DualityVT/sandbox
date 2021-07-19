@@ -11,7 +11,7 @@ function onPageLoad(){
     let str = window.location.search;
     if ( str != redirectURL ){
         str = str.slice(str.indexOf("#"), str.indexOf("&"));
-        alert("yep" + str); 
+        alert("yep " + str); 
     }
 }
 
