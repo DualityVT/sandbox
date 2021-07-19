@@ -11,26 +11,33 @@ function onPageLoad(){
     str = str.slice(37);
     if ( str.length > 0 ){
         str = str.slice(0, str.indexOf("&"));
-        alert(str);
+        token = str;
     }
+    if(token != ""){
+        isLive();
+    }
+
 }
+
+/*
+document.getElementById("button").style.backgroundColor = "#00ff00";
+document.getElementById("button").innerHTML = "Live";
+
+*/
 
 function onClick(){
     getToken();
 }
-//function isLive(){}
-/*
-url example:    
-    #access_token=rorq1oav1vcd34xnrcibfmpdl6jp4o
-    &id_token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJhdWQiOiJwNzQwdmdndWV5MzdqcDJraTZxZGQ2MWMyYnljc3YiLCJleHAiOjE2MjY3MDAxMDAsImlhdCI6MTYyNjY5OTIwMCwiaXNzIjoiaHR0cHM6Ly9pZC50d2l0Y2gudHYvb2F1dGgyIiwic3ViIjoiMTY1NTUxNjkyIiwiYXRfaGFzaCI6ImExUEFwdVRFdXZqUklHc2VOUzhWb1EiLCJhenAiOiJwNzQwdmdndWV5MzdqcDJraTZxZGQ2MWMyYnljc3YiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJjdXRlYmF0XyJ9.Hw1i9KhfXk28kSjmnv7vOIikxgZ23jUcnpAGP6DKFcommoFhZ7qYQqshsnHwZWab2T_JAsg5_QcTu3Td3SoTFHRqoIn8Agkod5eeQq7fu00RDDiJaV6ecnm583sytvAxV5peO9Oqy0ZiP2x8-EDC6qYNSCGjEkLiWiK4vdjhEpmDOg1qWxWSXUV6bhJ6sLYDYxfCcaA-vvsPYYJqNP5ls3bQM5scxy91fmqjIBhsLjCobRI2BnwO79UZpFcNLkSMSzssfuRP_vnxZmlnyx8Ik68a_Ezy5h6FaUGbaBY4oeIviCKmNOxrY4EC9vK7DIqGEDYC_1tctAdQGaebItroDg
-    &scope=openid+user_read
-    &token_type=bearer
 
-Access token are in a URL rn, catch it from there, and use it!
-window.location.search.length
-^ use this to catch token
+function isLive(){
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.twitch.tv/kraken/channel", null, handleIsLive);
+}
+function handleIsLive(){
+    var data = JSON.parse(this.responseText);
+    alert(data);
+}
 
-*/
 
 function getToken(){
     let cid = document.getElementById("clientID_text").value;
