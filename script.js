@@ -1,7 +1,8 @@
 var clientID = "";
 var clientSecret = "";
-var redirectURL = "https://github.com/DualityVT/sandbox/blob/c3330ecfe59ef637d8793e84db1472c33cd760d3/main.html";
+var redirectURL = "https://dualityvt.github.io/sandbox/";
 var token = "";
+
 const VALIDATE = "https://id.twitch.tv/oauth2/validate";
 const AUTH = "https://id.twitch.tv/oauth2/authorize";
 const ISLIVE = "https://api.twitch.tv/kraken/streams/"
@@ -18,8 +19,9 @@ window.location.search.length
 */
 }
 function getToken(){
+    let cid = document.getElementById("clientID_text").value;
     let url = AUTH;
-    url += "?client_id=" + document.getElementById(clientID).innerHTML;
+    url += "?client_id=" + cid;
     url += "&redirect_uri=" + redirectURL;
     url += "&response_type=token+id_token"
     url += "&scope=openid user_read"
