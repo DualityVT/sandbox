@@ -7,7 +7,9 @@ const AUTH = "https://id.twitch.tv/oauth2/authorize";
 const ISLIVE = "https://api.twitch.tv/kraken/streams/";
 
 function onPageLoad(){
-    alert(window.location.search); 
+    let str = window.location.href;
+    str = str.slice(36);
+    alert("str"); 
     let str = window.location.search;
     if ( str != redirectURL ){
         //take token here   
